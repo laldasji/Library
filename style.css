@@ -16,8 +16,7 @@
     src: url(resources/Lato-Light.ttf);
 }
 
-::selection
-{
+::selection {
     background: powderblue;
 }
 
@@ -56,21 +55,21 @@ body {
         border: none;
         position: absolute;
         width: max-content;
-        & img[src$='.svg']
-        {
+
+        & img[src$='.svg'] {
             width: 1em;
             padding: 0.5em;
         }
-        & #closeAddBook
-        {
+
+        & #closeAddBook {
             cursor: pointer;
             width: fit-content;
             position: absolute;
             right: 0;
             top: 0;
         }
-        & fieldset
-        {
+
+        & fieldset {
             border: none;
             font-family: Lato;
             padding: 1em;
@@ -79,21 +78,20 @@ body {
             font-size: 1.25rem;
             display: grid;
             gap: 1em;
-            & legend
-            {
+
+            & legend {
                 font-size: 1.5rem;
                 padding: 0.5rem;
                 width: 100%;
             }
-            & hr
-            {
-                height: 0.07em;
+
+            & hr {
                 color: black;
                 width: 100%;
             }
         }
-        & input
-        {
+
+        & input {
             transition-duration: 0.5s;
             font-family: Lato;
             font-size: 1.25rem;
@@ -104,13 +102,13 @@ body {
             border-right: none;
             border-top: none;
         }
-        & input:focus
-        {
+
+        & input:focus {
             border-color: var(--powder-blue);
             transform: scaleX(1.05);
         }
-        & button
-        {
+
+        & button {
             border: none;
             border-radius: 0.5rem;
             background-color: var(--powder-blue);
@@ -120,17 +118,17 @@ body {
             padding: 0.5em;
             transition-duration: 0.5s;
         }
-        & button:focus
-        {
+
+        & button:focus {
             outline: none;
             transform: scale(1.1);
         }
-        & button:active
-        {
+
+        & button:active {
             background-color: hsl(228, 54%, 44%);
         }
-        & .radioButtons
-        {
+
+        & .radioButtons {
             display: grid;
         }
     }
@@ -140,7 +138,6 @@ body {
     display: grid;
     font-family: Lato;
     color: var(--powder-blue);
-    font-weight: bold;
     grid-template-columns: 6fr 1fr;
 
     &>div {
@@ -166,8 +163,8 @@ body {
     font-size: calc(1rem + 0.5vw);
     justify-items: center;
     border-radius: 0.5rem;
-    & > #displayAddBookDialog
-    {
+
+    &>#displayAddBookDialog {
         cursor: pointer;
     }
 }
@@ -181,6 +178,7 @@ body {
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }
@@ -190,6 +188,7 @@ body {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -206,8 +205,8 @@ body {
     &>div {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr 0.5fr;
-        padding: 1em;
         font-size: 1.5rem;
+        padding: 1em;
         border-radius: 0.4rem;
         background-color: var(--light-blue);
         color: var(--white);
@@ -223,8 +222,9 @@ body {
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        &>author, pages
-        {
+
+        &>author,
+        pages {
             width: 100%;
             white-space: nowrap;
             overflow: hidden;
@@ -263,8 +263,7 @@ body {
         background-color: var(--white);
     }
 
-    & .deleteBook
-    {
+    & .deleteBook {
         background-size: 1em;
         height: 0.67em;
         width: 0.67em;
@@ -276,14 +275,13 @@ body {
     }
 }
 
-.slideOut
-{
+.slideOut {
     animation-name: disappear;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
-.slideIn
-{
+
+.slideIn {
     animation-name: reappear;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
