@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="addBookLayer">
+        <div id="addBookDialog">
+            <form action="#" id="addBookForm">
+                <div id="closeAddBook" title="Close">
+                    <img src="resources/close.svg" alt="close">
+                </div>
+                <fieldset>
+                    <legend>
+                        Enter Book details
+                        <hr>
+                    </legend>
+
+                    <div>
+                        <label for="bookName">Book's Name</label>
+                        <br>
+                        <input type="text" id="bookName">
+                    </div>
+
+                    <div>
+                        <label for="authorName">Author's Name</label>
+                        <br>
+                        <input type="text" id="authorName">
+                    </div>
+
+                    <div>
+                        <label for="bookPages">Pages</label>
+                        <br>
+                        <input type="number" id="bookPages">
+                    </div>
+
+                    <div>
+                        <div>Read the book?</div>
+                        <div class="radioButtons">
+                            <label for="readBookRadio">
+                                <input id="readBookRadio" type="radio" name="read?" value="readBook"> Read
+                            </label>
+                            <label for="unreadBookRadio">
+                                <input id="unreadBookRadio" type="radio" name="read?" value="notReadBook"> Unread
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="addBook">ADD</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div id="header">
+        <div>
+            <h1>'Das' Bibliothek.</h1>
+        </div>
+        <div>LOGIN (functional soon)</div>
+    </div>
+    <div id="info-bar">
+        <div id="totalBooks">Total Books</div>
+        <div id="readBooks">Books Read</div>
+        <div id="displayAddBookDialog">Add Books</div>
+    </div>
+    <div id="content-container">
+        <div id="main-container">
+        </div>
+        <br>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
