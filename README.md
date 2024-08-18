@@ -11,7 +11,7 @@
 - **Smooth Animations:** Experience fluid and polished transitions when elements are removed. The interface avoids jagged or abrupt animations for a more refined user experience.
 
 ## Follow-up
-The project will soon feature an active backend, allowing users to create login credentials and securely store their book archives.
+The project will soon feature an active back end, allowing users to create login credentials and securely store their book archives.
 ## Suggestions
 If you have any suggestions, please write to me at abhinavashutoshlaldas@gmail.com
 

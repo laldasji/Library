@@ -10,13 +10,14 @@ class Book {
     author = '';
     pages = 0;
     bookID = 0;
-    constructor(title, author, pages) {
+    isRead = false;
+    constructor(title, author, pages, readStatus) {
         this.title = title;
         this.author = author;
         this.pages = pages;
         Book.incrementBookID();
         this.bookID = Book.bookIDCounter;
-        this.info = () => `${title}, written by ${author} contains ${pages} pages.`;
+        this.isRead = readStatus;
     }
 };
 
@@ -57,7 +58,7 @@ function closeAddBookDialog()
 
 closeAddBook.addEventListener("click", closeAddBookDialog);
 
-displayAddBookDialog.addEventListener("click", event => {
+displayAddBookDialog.addEventListener("click", () => {
     addBookLayer.classList.remove('slideOut');
     addBookLayer.classList.add('slideIn');
     setTimeout(() => {
@@ -102,23 +103,28 @@ function addBookToDisplay(BookNameValue, authorNameValue, pagesValue, readStatus
         newBook.classList.add('unread');
     }
 
-    readButton.addEventListener('click', event => {
+    readButton.addEventListener('click', () => {
+        let currentID = (newBook.id).substring(1);
+        const book = bookList.find(element => element.bookID == currentID);
         if (newBook.classList.contains('read')) {
             newBook.classList.remove('read');
             newBook.classList.add('unread');
             readButton.textContent = 'Unread';
+            book.isRead = false;
             booksRead--;
         }
         else {
             newBook.classList.remove('unread');
             newBook.classList.add('read');
             readButton.textContent = 'Read';
+            book.isRead = true;
             booksRead++;
         }
+        console.log(book);
         updateBooksRead();
     });
 
-    closeButton.addEventListener('click', event => {
+    closeButton.addEventListener('click', () => {
         // this will involve a smooth transition, where the deleted element disappears
         // remove element from bookList
         let currentBookID = Number((newBook.id).substring(1));
@@ -177,7 +183,7 @@ function creatBookEntry() {
     let readStatus = readBookInput.checked;
 
     if (BookNameValue !== '' && authorNameValue !== '' && (Number.isInteger(Number(pagesValue)))) {
-        const newBook = new Book(BookNameValue, authorNameValue, pagesValue);
+        const newBook = new Book(BookNameValue, authorNameValue, pagesValue, readStatus);
         bookList.push(newBook);
         addBookToDisplay(BookNameValue, authorNameValue, pagesValue, readStatus);
         updateTotalBooks();
@@ -187,16 +193,16 @@ function creatBookEntry() {
 addBookButton.addEventListener("click", creatBookEntry);
 addBookButton.addEventListener("click", closeAddBookDialog);
 
-const newBook = new Book('Principles', 'Ray Dalio', 592);
+const newBook = new Book('Principles', 'Ray Dalio', 592, true);
 addBookToDisplay('Principles', 'Ray Dalio', 592, true);
 bookList.push(newBook);
 
-const anotherBook = new Book('48 Laws of Power', 'Robert Greene', 480);
+const anotherBook = new Book('48 Laws of Power', 'Robert Greene', 480, true);
 addBookToDisplay('48 Laws of Power', 'Robert Greene', 480, true);
 bookList.push(anotherBook);
 
-const yetAnotherBook = new Book('Deep Work', 'Cal Newport', 304);
-addBookToDisplay('Deep Work', 'Cal Newport', 304, true);
+const yetAnotherBook = new Book('Deep Work', 'Cal Newport', 304, false);
+addBookToDisplay('Deep Work', 'Cal Newport', 304, false);
 bookList.push(yetAnotherBook);
 
 updateTotalBooks();
